@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    margin: 0 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 4px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome {
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e9e9e9;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+input[type="submit"] {
+    align-self: flex-start;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.success {
+    color: green;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+}
+
+header p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+header a {
+    margin-left: 10px;
+}
+
+header div a {
+    margin: 0;
+}
+
+header .welcome {
+    align-items: flex-end;
+}
+
+header .welcome h2 {
+    margin-bottom: 5px;
+}
+
+header .welcome div {
+    display: flex;
+    gap: 10px;
+}
+
+header .welcome div a {
+    margin: 0;
+}
+
+header .welcome div a:first-child {
+    margin-left: 0;
+}
+
+header .welcome div a:last-child {
+    margin-right: 0;
+}
+
+header .welcome div a:hover {
+    text-decoration: underline;
+}
+
+header .welcome div a:visited {
+    color: #3498db;
+}
+
+header .welcome div a:active {
+    color: #2980b9;
+}
+
+header .welcome div a:focus {
+    outline: none;
+    box-shadow: 0 0 2px 2px rgba(52, 152, 219, 0.5);
+}
+
+header .welcome div a {
+    font-weight: bold;
+}
+
+header .welcome div a:hover {
+    text-decoration: none;
+    background-color: #ecf0f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+header .welcome div a:active {
+    background-color: #bdc3c7;
+}
+
+header .welcome div a:focus {
+    background-color: #ecf0f1;
+}
+
+header .welcome div a {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header .welcome div a:hover {
+    color: #2980b9;
+}
+
+header .welcome div a:active {
+    color: #1c5980;
+}
+
+header .welcome div a:focus {
+    color: #2980b9;
+}
+
+header .welcome div a {
+    text-decoration: none;
+}
+
+header .welcome div a:hover {
+    text-decoration: underline;
+}
+
+header .welcome div a:active {
+    text-decoration: none;
+}
+
+header .welcome div a:focus {
+    text-decoration: underline;
+}
+
+header .welcome div a {
+    font-size: 16px;
+}
+
+header .welcome div a:hover {
+    font-size: 16px;
+}
+
+header .welcome div a:active {
+    font-size: 16px;
+}
+
+header .welcome div a:focus {
+    font-size: 16px;
+}
+
+header .welcome div a {
+    padding: 5px 10px;
+}

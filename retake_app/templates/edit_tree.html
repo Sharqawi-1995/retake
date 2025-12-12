@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit tree</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Edit Tree Details</h1>
+        </div>
+        <div class="welcome">
+            <h2>Welcome, {{ user.firstname }}!</h2>
+            <div class="links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            <form action="/tree/{{ tree.id }}/edit/" method="POST">
+                {% csrf_token %}
+                <label for="species">Species:</label>
+                <input type="text" id="species" name="species" value="{{ tree.species }}" required><br>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" value="{{ tree.location }}" required><br>
+                <label for="zip_code">Zip Code:</label>
+                <input type="text" id="zip_code" name="zip_code" value="{{ tree.zip_code }}" required><br>
+                <label for="date_found">Date Found:</label>
+                <input type="date" id="date_found" name="date_found" value="{{ tree.date_found }}" required><br>
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes">{{ tree.notes }}</textarea><br>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

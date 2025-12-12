@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Details</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Tree Mapper</h1>
+            <p>Find, share and learn about real trees!</p>
+        </div>
+        <div class="welcome">
+            <h2>Welcome, {{ user.firstname }}!</h2>
+            <div class="links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            <h2> {{ tree.species }}</h2>
+            <p> added by {{ tree.mapped_by.firstname }} {{ tree.mapped_by.lastname }}</p>
+            <p><strong>Location:</strong> {{ tree.location }}</p>
+            <p><strong>Date Found:</strong> {{ tree.date_found }}</p>
+            <p><strong>Notes:</strong> {{ tree.notes }}</p>
+        </div>
+        <div style="color: purple; border: purple 1px solid;">
+            <h2>Visited by:</h2>
+            <ul>
+                {% for visitor in tree.visitors.all %}
+                <li>{{ visitor.firstname }} {{ visitor.lastname }}</li>
+                {% empty %}
+                <li>No visitors yet.</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'visit_tree' tree.id %}">Did you visit this tree?</a>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Tree Mapper</h1>
+            <p>Find, share and learn about real trees!</p>
+        </div>
+        <div class="welcome">
+            <h2>Welcome, {{ user.firstname }}!</h2>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </header>
+    <main>
+        <div>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            <h2>Mapped Trees</h2>
+            <a href="{% url 'add_tree' %}">+ Post a new tree on the map</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Species</th>
+                    <th>View</th>
+                    <th>Mapped by</th>
+                    <th>Zip Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tree in trees %}
+                <tr>
+                    <td>{{ tree.species }}
+                        {% if tree.mapped_by.id == user.id %}
+                        <a href="{% url 'edit_tree' tree.id %}">(Edit)</a>|
+                        <a href="{% url 'delete_tree' tree.id %}">(Delete)</a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'tree_details' tree.id %}">More</a></td>
+                    <td>{{ tree.mapped_by.firstname }} {{ tree.mapped_by.lastname }}</td>
+                    <td><a href="{% url 'zip_code' tree.zip_code %}">{{ tree.zip_code }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <div>
+            {% if errors %}
+            <ul>
+                {% for error in errors %}
+                <li style="color: red;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </footer>
+</body>
+
+</html>

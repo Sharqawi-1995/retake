@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zip Code Data</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Tree Mapper</h1>
+            <p>Find, share and learn about real trees!</p>
+        </div>
+        <div class="welcome">
+            <h2>Welcome, {{ user.firstname }}!</h2>
+            <div class="links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h2>Trees in Zip Code: {{ zip_code }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Species</th>
+                        <th>Date Found</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tree in zip_code_trees %}
+                    <tr>
+                        <td>{{ tree.species }}</td>
+                        <td>{{ tree.date_found }}</td>
+                        <td>{{ tree.location }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
